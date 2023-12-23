@@ -648,3 +648,9 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-23 14:17:27.157
 !MESSAGE Classpath changed for project: jdbc-dao-demo
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-23 15:31:16.041
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-12-23 15:31:16.047
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 10576
