@@ -1,0 +1,55 @@
+package Program;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
+import java.time.temporal.TemporalField;
+
+import com.mysql.cj.xdevapi.PreparableStatement;
+
+import Db.DB;
+import Db.DbExcepition;
+
+public class program {
+
+	public static void main(String[] args) {
+
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		Connection conn = null;
+		PreparedStatement st = null;
+		
+		try {
+		
+		conn = DB.loadConnection();
+		st = conn.prepareStatement("INSERT into seller "
+								+ "(NAME, Email, BirthDate, BaseSalary, DepartmentId) "
+								+ "VALUES "
+								+ "(?,?,?,?,?)");
+		
+		st.setString(1, "João");
+		st.setString(2, "João@gmail.com");
+		
+		Date data = Date.valueOf((LocalDate) fmt.parse("20/11/2020"));
+		st.setDate(3, new Date(data.getTime()));
+		
+		st.setDouble(4, 2000);
+		st.setInt(5, 4);
+		
+		st.executeUpdate();
+		
+		}catch (SQLException e) {
+			e.getStackTrace();
+		}
+		
+		
+		DB.closeConnection();
+
+	}
+
+}
