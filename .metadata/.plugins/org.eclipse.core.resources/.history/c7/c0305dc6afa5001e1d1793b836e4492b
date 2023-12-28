@@ -1,0 +1,30 @@
+package program;
+
+import model.Entities.Department;
+import model.Entities.Seller;
+import model.dao.DaoFactory;
+import model.dao.SellerDao;
+
+public class Program {
+	
+	public static void main(String[] args) {
+	
+		DaoFactory daoFactory = new DaoFactory();
+		
+		SellerDao  sellerDao = daoFactory.createSellerDao();
+		
+		
+		System.out.println("=== TEST 1: findById ===");
+		System.out.println(sellerDao.findById(2));
+		System.out.println();
+		
+		System.out.println("=== TEST 2: findByDepartment ===");
+		Department department = new Department(1, "Electronics");
+		for(Seller seller : sellerDao.findByDepartment(department)) {
+			
+			System.out.println(seller);
+		}
+		System.out.println();
+		
+	}
+}
