@@ -18,9 +18,7 @@ public class Program {
 		System.out.println();
 		
 		System.out.println("===TESTE 2: findByDepartment===");
-		Department department = new Department(2,"Electronics");
-		for(Seller seller : sellerDao.findByDepartment(department)) {
-			System.out.println(seller);
-		}
+		Department department = new Department();
+		for(Seller seller : sellerDao.findByDepartment(department) )
 	}
 }

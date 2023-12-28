@@ -99,7 +99,7 @@ public class SellerDaoJDBC implements SellerDao {
 
 				if (dep == null) {
 					dep = instantiateDepartment(rs.getInt("DepartmentId"), rs.getNString("DepName"));
-					map.put(rs.getInt("DepartmentId"), dep);
+					map.put(rs.getInt("DepartementId"), dep);
 
 				}
 

@@ -2,8 +2,6 @@ package program;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
-import model.Entities.Department;
-import model.Entities.Seller;
 
 public class Program {
 	
@@ -18,9 +16,7 @@ public class Program {
 		System.out.println();
 		
 		System.out.println("===TESTE 2: findByDepartment===");
-		Department department = new Department(2,"Electronics");
-		for(Seller seller : sellerDao.findByDepartment(department)) {
-			System.out.println(seller);
-		}
+		Department department = new Department();
+		for(Seller seller : sellerDao.findByDepartment(department) )
 	}
 }
