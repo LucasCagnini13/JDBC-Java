@@ -1,11 +1,28 @@
 package model.dao.impl;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Date;
 import java.util.List;
 
+import com.mysql.cj.xdevapi.PreparableStatement;
+
+import Db.DbExcepition;
+import model.Entities.Department;
 import model.Entities.Seller;
 import model.dao.SellerDao;
 
 public class SellerDaoJDBC implements SellerDao{
+	
+	private Connection conn;
+	
+	public SellerDaoJDBC(Connection conn) {
+		
+		this.conn = conn;
+	}
+	
 
 	@Override
 	public void insert(Seller obj) {
@@ -27,7 +44,34 @@ public class SellerDaoJDBC implements SellerDao{
 
 	@Override
 	public Seller findById(Integer id) {
-		// TODO Auto-generated method stub
+		
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			
+			st =  conn.prepareStatement("SELECT seller.*,department.Name as DepName "
+										+ "FROM seller INNER JOIN department "
+										+ "ON seller.DepartmentId = department.Id "
+										+ "WHERE seller.Id = ?");
+			
+			st.setInt(1, id);
+			
+			rs = st.executeQuery();
+			
+			if(rs.next()) {
+				
+				Department department = instantiateDepartment(rs.getInt("DepartmentId"),rs.getNString("DepName") );
+				Seller seller = instantiateSeller(rs.getInt("Id"), rs.getNString("Name"), rs.getNString("Email"), rs.getDate("BirthDate"), rs.getDouble("BaseSalary"), department );
+				return seller;
+			}
+			
+			
+		}catch (Exception e) {
+			throw new  DbExcepition(e.getMessage());
+		}
+		
+		
+		
 		return null;
 	}
 
@@ -36,5 +80,16 @@ public class SellerDaoJDBC implements SellerDao{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	public Department instantiateDepartment(int id, String nome) {
+		
+		return new Department(id, nome);
+		
+	}
+	
+	public Seller instantiateSeller(int id, String nome, String email, Date data, double baseSalary, Department department) {
+		
+		return new Seller(id, nome, email, data, baseSalary,department);
+		
+	}
 }

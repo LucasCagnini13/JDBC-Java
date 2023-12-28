@@ -43,4 +43,10 @@ public class Department implements Serializable {
 		Department other = (Department) obj;
 		return id == other.id;
 	}
+	
+	@Override
+	public String toString() {
+		return "Department [id=" + id + ", name=" + name + "]";
+	}
+	
 }
