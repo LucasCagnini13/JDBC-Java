@@ -24,8 +24,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
 	@Override
 	public void insert(Department obj) {
-		
-	
+		// TODO Auto-generated method stub
 
 	}
 
@@ -49,7 +48,8 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 		try {
 
 			st = conn.prepareStatement(
-					"SELECT * from department "+ "WHERE department.Id = ?");
+					"SELECT seller.*,department.Name as DepName " + "FROM seller INNER JOIN department "
+							+ "ON seller.DepartmentId = department.Id " + "WHERE seller.Id = ?");
 
 			st.setInt(1, id);
 
@@ -58,9 +58,8 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 			if (rs.next()) {
 				
 				Department department = new Department(rs.getInt(1), rs.getString(2));
-				return department;
+				return 
 			}
-			
 
 		} catch (Exception e) {
 
@@ -70,8 +69,6 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 			DB.closeResultSet(rs);
 			DB.closeStatement(st);
 		}
-		
-		return null;
 	}
 
 	@Override

@@ -24,8 +24,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
 	@Override
 	public void insert(Department obj) {
-		
-	
+		// TODO Auto-generated method stub
 
 	}
 
@@ -49,7 +48,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 		try {
 
 			st = conn.prepareStatement(
-					"SELECT * from department "+ "WHERE department.Id = ?");
+					"SELECT * from department "+ "WHERE seller.Id = ?");
 
 			st.setInt(1, id);
 

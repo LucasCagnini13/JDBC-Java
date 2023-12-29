@@ -12,11 +12,6 @@ public class Program2 {
 		
 		DepartmentDao departmentDao = daoFactory.createDepartmentDao();
 		
-		
-		System.out.println("===TESTE 1: findById===");
-		System.out.println(departmentDao.findById(1));
-		System.out.println();
-		
 		System.out.println("===TESTE 2: findAll===");
 		for (Department department : departmentDao.findAll()) {
 			System.out.println(department);

@@ -24,8 +24,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
 	@Override
 	public void insert(Department obj) {
-		
-	
+		// TODO Auto-generated method stub
 
 	}
 

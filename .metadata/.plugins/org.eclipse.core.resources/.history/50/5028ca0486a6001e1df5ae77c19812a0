@@ -14,7 +14,7 @@ public class Program2 {
 		
 		
 		System.out.println("===TESTE 1: findById===");
-		System.out.println(departmentDao.findById(1));
+		System.out.println(departmentDao.findById(2));
 		System.out.println();
 		
 		System.out.println("===TESTE 2: findAll===");
