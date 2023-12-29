@@ -52,16 +52,11 @@ public class SellerDaoJDBC implements SellerDao {
 			
 			rs = st.getGeneratedKeys();
 			
-			if(rowsAffecteds > 0) {
-				if(rs.next()) {
-					
-					int id = rs.getInt(1);
-					obj.setId(id);
-				}
-			}else {
-				throw new DbExcepition("Unexpected error! No rows affecteds");
-			}
+			if(rs.next()) {
 				
+				
+			}
+			
 		}catch (Exception e) {
 			// TODO: handle exception
 		}

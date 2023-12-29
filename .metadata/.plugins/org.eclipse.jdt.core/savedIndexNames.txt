@@ -1,6 +1,5 @@
 INDEX VERSION 1.131+C:\Users\Lucas Gabriel\Desktop\programação\CursoJavaUdemy\JDBC-Java\.metadata\.plugins\org.eclipse.jdt.core
 1865797976.index
-1139844030.index
 1720291087.index
 1214259635.index
 3439231632.index

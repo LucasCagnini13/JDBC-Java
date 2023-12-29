@@ -2,9 +2,6 @@ package program;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
-
-import java.util.Date;
-
 import model.Entities.Department;
 import model.Entities.Seller;
 
@@ -30,11 +27,5 @@ public class Program {
 		for(Seller seller : sellerDao.findAll()) {
 			System.out.println(seller);
 		}
-		System.out.println();
-		
-		System.out.println("===TESTE 4: Insert===");
-		Seller seller = new Seller(null, "Greg", "Greg@gmail.com", new Date(), 1000.0, department);
-		sellerDao.insert(seller);
-		System.out.println("Id : "+seller.getId());
 	}
 }
