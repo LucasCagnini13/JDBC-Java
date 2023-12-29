@@ -52,7 +52,6 @@ public class Program {
 		System.out.println("===TESTE 6: Delete===");
 		int id = scan.nextInt();
 		sellerDao.deleteById(id);
-		System.out.println("Delete Completed!");
 		
 	}
 }

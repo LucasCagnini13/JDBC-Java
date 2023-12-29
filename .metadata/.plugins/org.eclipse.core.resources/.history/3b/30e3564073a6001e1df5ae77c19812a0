@@ -49,7 +49,7 @@ public class Program {
 		System.out.println(seller);
 		System.out.println();
 		
-		System.out.println("===TESTE 6: Delete===");
+		System.out.println("===TESTE 6: Delete===\n");
 		int id = scan.nextInt();
 		sellerDao.deleteById(id);
 		System.out.println("Delete Completed!");
