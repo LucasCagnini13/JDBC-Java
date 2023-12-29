@@ -13,7 +13,6 @@ import java.util.Map;
 
 import com.mysql.cj.xdevapi.PreparableStatement;
 
-import Db.DB;
 import Db.DbExcepition;
 import model.Entities.Department;
 import model.Entities.Seller;
@@ -66,19 +65,14 @@ public class SellerDaoJDBC implements SellerDao {
 				
 		}catch (SQLException e) {
 			throw new DbExcepition(e.getMessage());
-		}finally {
-			
-			DB.closeStatement(st);
-			DB.closeResultSet(rs);
-			
-			
 		}
+
 	}
 
 	@Override
 	public void update(Seller obj) {
-		
-		
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
