@@ -54,8 +54,12 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 		
 		try {
 			st = conn.prepareStatement(
-					"SELECT * from department "
-					+"ORDER BY Name ");
+					"SELECT seller.*,department.Name as DepName "
+					+"FROM seller INNER JOIN department "
+					+"ON seller.DepartmentId = department.Id "
+					+"WHERE seller.Id = ?");
+			
+			st.executeUpdate();
 			
 			rs = st.executeQuery();
 			

@@ -57,6 +57,7 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 					"SELECT * from department "
 					+"ORDER BY Name ");
 			
+			
 			rs = st.executeQuery();
 			
 			List<Department> list = new ArrayList<>();
