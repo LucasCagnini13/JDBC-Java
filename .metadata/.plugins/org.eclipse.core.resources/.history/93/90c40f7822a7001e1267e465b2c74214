@@ -91,17 +91,11 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 		
 		try {
 			
-			st = conn.prepareStatement(
-					"DELETE FROM department "
-					+"WHERE Id = ?");
-			
-			st.executeUpdate();
 			
 		}catch (SQLException e) {
-			throw new DbExcepition(e.getMessage());
+			// TODO: handle exception
 		}finally {
 			
-			DB.closeStatement(st);
 			
 		}
 

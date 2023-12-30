@@ -32,7 +32,7 @@ public class Program2 {
 
 		System.out.println("===TESTE 4: Update===");
 		department = departmentDao.findById(1);
-		department.setName("DVD");
+		department.setNome("DVD");
 		departmentDao.update(department);
 		System.out.println("Update Completed! ");
 		System.out.println(department);
