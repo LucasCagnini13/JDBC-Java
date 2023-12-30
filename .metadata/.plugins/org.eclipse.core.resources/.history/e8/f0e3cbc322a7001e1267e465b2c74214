@@ -95,8 +95,6 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 					"DELETE FROM department "
 					+"WHERE Id = ?");
 			
-			st.setInt(1, id);
-			
 			st.executeUpdate();
 			
 		}catch (SQLException e) {
