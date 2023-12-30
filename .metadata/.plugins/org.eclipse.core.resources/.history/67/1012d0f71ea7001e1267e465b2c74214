@@ -30,31 +30,6 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 		
 		try {
 			
-			st = conn.prepareStatement(
-					"INSERT INTO department "
-					+"(Name) "
-					+"VALUES "
-					+"(?)",
-					Statement.RETURN_GENERATED_KEYS
-					);
-			
-			st.setString(1, obj.getNome());
-			
-			int rowsAffecteds = st.executeUpdate();
-			
-			rs = st.getGeneratedKeys();
-			
-			if(rowsAffecteds > 0) {
-				if(rs.next()) {
-					
-					int id = rs.getInt(1);
-					obj.setId(id);
-					
-				}
-			}else {
-				throw new DbExcepition("Unexpected error! No rows affecteds");
-			}
-			
 			
 		}catch (SQLException e) {
 			
